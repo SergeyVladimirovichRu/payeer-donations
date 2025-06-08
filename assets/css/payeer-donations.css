@@ -71,3 +71,25 @@
     padding: 15px;
     margin-bottom: 20px;
 }
+.donate-button {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.donate-button.loading:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

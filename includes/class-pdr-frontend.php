@@ -26,6 +26,22 @@ class PDR_Frontend {
             PDR_Payeer_Donations::VERSION,
             true
         );
+
+        // Локализация с правильными ключами
+        wp_localize_script('payeer-donations-frontend', 'payeerDonations', [
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('payeer-donations-nonce'),
+            'processingText' => __('Processing...', 'payeer-donations'),
+            'minAmountError' => __('Minimum donation amount is 0.01. Please increase your donation.', 'payeer-donations'),
+            'genericError' => __('Payment processing error. Please try again later.', 'payeer-donations'),
+            'timeoutError' => __('Connection timeout. Please check your internet connection.', 'payeer-donations'),
+            'securityError' => __('Security error. Please refresh the page.', 'payeer-donations'),
+            'serverError' => __('Server error. Please try again later.', 'payeer-donations'),
+            'connectionError' => __('Connection error. Please try again.', 'payeer-donations')
+        ]);
+
+        // Не забудьте зарегистрировать скрипт!
+        wp_enqueue_script('payeer-donations-frontend');
     }
     public function donation_form_shortcode($atts = array()) {
         wp_enqueue_style('payeer-donations-frontend');
