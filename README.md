@@ -1,4 +1,3 @@
-# payeer-donations
 A simple and convenient plugin for accepting donations via the Payeer payment system.
 
 == Description ==
